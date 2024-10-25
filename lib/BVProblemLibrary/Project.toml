@@ -1,6 +1,6 @@
 name = "BVProblemLibrary"
 uuid = "ded0fc24-dfea-4565-b1d9-79c027d14d84"
-version = "0.1.4"
+version = "0.1.5"
 
 [deps]
 DiffEqBase = "2b5f629d-d688-5b77-993f-72d75c75574e"
@@ -11,7 +11,7 @@ SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"
 Aqua = "0.5"
 DiffEqBase = "6"
 SpecialFunctions = "2.3"
-julia = "1.6"
+julia = "1.10"
 
 [extras]
 Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"

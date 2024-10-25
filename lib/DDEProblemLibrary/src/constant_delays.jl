@@ -72,10 +72,10 @@ function f_dde_constant_1delay_ip!(du, u, h, p, t)
 end
 
 function fanalytic_dde_constant_1delay(u₀,
-    ::Union{typeof(h_dde_constant_ip),
-        typeof(h_dde_constant_oop),
-        typeof(h_dde_constant_scalar)},
-    p, t)
+        ::Union{typeof(h_dde_constant_ip),
+            typeof(h_dde_constant_oop),
+            typeof(h_dde_constant_scalar)},
+        p, t)
     z = t * inv(oneunit(t))
     0 ≤ z ≤ 10 || error("analytical solution is only implemented for t ∈ [0, 10]")
 
@@ -110,7 +110,8 @@ function fanalytic_dde_constant_1delay(u₀,
     end
 end
 
-const prob_dde_constant_1delay_ip = DDEProblem(DDEFunction(f_dde_constant_1delay_ip!;
+const prob_dde_constant_1delay_ip = DDEProblem(
+    DDEFunction(f_dde_constant_1delay_ip!;
         analytic = fanalytic_dde_constant_1delay),
     [1.0], h_dde_constant_ip, (0.0, 10.0),
     typeof(1.0);
@@ -131,7 +132,8 @@ function f_dde_constant_1delay_oop(u, h, p, t)
     h(p, t - e) ./ (-e)
 end
 
-const prob_dde_constant_1delay_oop = DDEProblem(DDEFunction(f_dde_constant_1delay_oop;
+const prob_dde_constant_1delay_oop = DDEProblem(
+    DDEFunction(f_dde_constant_1delay_oop;
         analytic = fanalytic_dde_constant_1delay),
     [1.0], h_dde_constant_oop, (0.0, 10.0),
     typeof(1.0);
@@ -152,7 +154,8 @@ function f_dde_constant_1delay_scalar(u, h, p, t)
     -h(p, t - e) / e
 end
 
-const prob_dde_constant_1delay_scalar = DDEProblem(DDEFunction(f_dde_constant_1delay_scalar;
+const prob_dde_constant_1delay_scalar = DDEProblem(
+    DDEFunction(f_dde_constant_1delay_scalar;
         analytic = fanalytic_dde_constant_1delay),
     1.0, h_dde_constant_scalar, (0.0, 10.0),
     typeof(1.0);
@@ -261,10 +264,10 @@ function f_dde_constant_2delays_ip!(du, u, h, p, t)
 end
 
 function fanalytic_dde_constant_2delays(u₀,
-    ::Union{typeof(h_dde_constant_ip),
-        typeof(h_dde_constant_oop),
-        typeof(h_dde_constant_scalar)},
-    p, t)
+        ::Union{typeof(h_dde_constant_ip),
+            typeof(h_dde_constant_oop),
+            typeof(h_dde_constant_scalar)},
+        p, t)
     z = t * inv(oneunit(t))
     0 ≤ z ≤ 1 || error("analytical solution is only implemented for t ∈ [0, 1]")
 
@@ -297,7 +300,8 @@ function fanalytic_dde_constant_2delays(u₀,
     end
 end
 
-const prob_dde_constant_2delays_ip = DDEProblem(DDEFunction(f_dde_constant_2delays_ip!;
+const prob_dde_constant_2delays_ip = DDEProblem(
+    DDEFunction(f_dde_constant_2delays_ip!;
         analytic = fanalytic_dde_constant_2delays),
     [1.0], h_dde_constant_ip, (0.0, 1.0),
     typeof(1.0);
@@ -318,7 +322,8 @@ function f_dde_constant_2delays_oop(u, h, p, t)
     (h(p, t - T(1 / 3)) .+ h(p, t - T(1 / 5))) ./ (-oneunit(t))
 end
 
-const prob_dde_constant_2delays_oop = DDEProblem(DDEFunction(f_dde_constant_2delays_oop;
+const prob_dde_constant_2delays_oop = DDEProblem(
+    DDEFunction(f_dde_constant_2delays_oop;
         analytic = fanalytic_dde_constant_2delays),
     [1.0], h_dde_constant_oop, (0.0, 1.0),
     typeof(1.0);
@@ -339,7 +344,8 @@ function f_dde_constant_2delays_scalar(u, h, p, t)
     -(h(p, t - T(1 / 3)) + h(p, t - T(1 / 5))) / oneunit(t)
 end
 
-const prob_dde_constant_2delays_scalar = DDEProblem(DDEFunction(f_dde_constant_2delays_scalar;
+const prob_dde_constant_2delays_scalar = DDEProblem(
+    DDEFunction(f_dde_constant_2delays_scalar;
         analytic = fanalytic_dde_constant_2delays),
     1.0, h_dde_constant_scalar, (0.0, 1.0),
     typeof(1.0);
@@ -369,7 +375,8 @@ function f_dde_constant_2delays_long_ip!(du, u, h, p, t)
     nothing
 end
 
-const prob_dde_constant_2delays_long_ip = DDEProblem(f_dde_constant_2delays_long_ip!, [1.0],
+const prob_dde_constant_2delays_long_ip = DDEProblem(
+    f_dde_constant_2delays_long_ip!, [1.0],
     h_dde_constant_ip, (0.0, 100.0),
     typeof(1.0);
     constant_lags = [1 / 3, 1 / 5])
@@ -410,7 +417,8 @@ function f_dde_constant_2delays_long_scalar(u, h, p, t)
     -(h(p, t - T(1 / 3)) + h(p, t - T(1 / 5))) / oneunit(t)
 end
 
-const prob_dde_constant_2delays_long_scalar = DDEProblem(f_dde_constant_2delays_long_scalar,
+const prob_dde_constant_2delays_long_scalar = DDEProblem(
+    f_dde_constant_2delays_long_scalar,
     1.0, h_dde_constant_scalar,
     (0.0, 100.0),
     typeof(1.0);

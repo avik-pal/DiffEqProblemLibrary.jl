@@ -1,6 +1,6 @@
 name = "SDEProblemLibrary"
 uuid = "c72e72a9-a271-4b2b-8966-303ed956772e"
-version = "0.1.6"
+version = "0.1.7"
 
 [deps]
 Catalyst = "479239e8-5488-4da2-87a7-35f2df7eef83"
@@ -11,11 +11,11 @@ SciMLBase = "0bca4576-84f4-4d90-8ffe-ffa030f20462"
 
 [compat]
 Aqua = "0.5"
-Catalyst = "13"
+Catalyst = "14"
 DiffEqBase = "6"
 RuntimeGeneratedFunctions = "0.5"
 SciMLBase = "2.0.1"
-julia = "1.6"
+julia = "1.10"
 
 [extras]
 Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
